@@ -1,0 +1,98 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	box-sizing: border-box;
+}
+body {
+	background-color: black;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:visited {
+	color: white;
+}
+a:hover {
+	color: yellow;
+}
+
+.elTb {
+	border-width: 1px;
+	border-color: white;
+	border-style: solid;
+	display: block;
+	background-color: black;
+	z-index: 2;
+}
+
+.cantoCima {
+	z-index: 2;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 13%;
+	width: 8%;
+	background-image: url(assets/icones/parado.gif);
+	background-size: cover;
+}
+
+
+.cantoBaixo {
+	z-index: 2;
+	position: fixed;
+	top: 76%;
+	left: 85%;
+	height: 22%;
+	width: 14%;
+	background-image: url(assets/icones/moguinhos.gif);
+	background-size: cover;
+}
+
+.postBlog {
+	border-width: 1px;
+	border-color: white;
+	border-radius: 15px 15px 15px 15px;
+	width: 780px;
+	margin-left: 10px;
+	margin-top: 30px;
+	border-style: solid;
+	display: block;
+	overflow-y: scroll;
+	background-image: linear-gradient(to right, #000000, #001b00, #001b00 0px, #000000 500px);
+	z-index: 3;
+}
+
+.tituloBlog {
+	text-align: center;
+	font-size: 40px;
+	color: white;
+	text-shadow: 1px 2px #003f00;
+}
+
+.textoBlog {
+	font-size: 15px;
+	color:white;
+	text-shadow: 1px 2px #003f00;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.cantoCima:hover {
+	background-image: url(assets/icones/ventando.gif);
+}
+
+.principal {
+	width: 950px;
+	border-width: 2px;
+	border-spacing: 4px;
+	border-color: white;
+	border-style: solid;
+	height: 110px;
+	box-shadow: 0px 0px 60px green;
+	background-image: url(assets/icones/becki.jpg);
+}
