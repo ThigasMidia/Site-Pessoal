@@ -21,6 +21,16 @@ a:hover {
 	color: yellow;
 }
 
+.botao {
+	border-width: 1px;
+	border-color: white;
+	border-style: solid;
+	background-color: black;
+	position: relative;
+	display: grid;
+	z-index: 3;
+}
+
 .elTb {
 	border-width: 1px;
 	border-color: white;
