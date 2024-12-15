@@ -6,7 +6,7 @@
 	box-sizing: border-box;
 }
 body {
-	background-image: url(assets/icones/fundopixel.png);
+	background-image: url(assets/icones/fundogif.gif);
 }
 
 a {
@@ -19,6 +19,24 @@ a:visited {
 }
 a:hover {
 	color: yellow;
+}
+
+ul {
+	list-style-type: disc;
+}
+
+li {
+	margin-top: 10px;
+}
+
+.caixa {
+	background-image: url(assets/icones/fundoTextin.png);
+	overflow-y: scroll;
+	display: block;
+	border-width: 1px;
+	border-color: white;
+	border-style: solid;
+	word-wrap: break-word;
 }
 
 .botaoSai {
