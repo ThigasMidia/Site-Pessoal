@@ -6,7 +6,7 @@
 	box-sizing: border-box;
 }
 body {
-	background-color: black;
+	background-image: url(assets/icones/fundopixel.png);
 }
 
 a {
