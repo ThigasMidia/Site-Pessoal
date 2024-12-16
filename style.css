@@ -49,9 +49,19 @@ li {
 	border-radius: 5px;
   }
 
+.thigas {
+	height: 250px;
+	width: 200px;
+	rotate: -8deg;
+	border-color: #00ff00;
+	border-width: 2px;
+	border-style: solid;
+}
+
 .caixa {
 	background-image: url(assets/icones/fundoTextin.png);
 	overflow-y: scroll;
+	overflow-x: hidden;
 	display: block;
 	border-width: 1px;
 	border-color: white;
