@@ -67,6 +67,7 @@ li {
 	border-color: white;
 	border-style: solid;
 	word-wrap: break-word;
+	scrollbar-width: none;
 }
 
 .botaoSai {
