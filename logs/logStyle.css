@@ -5,6 +5,24 @@ body {
     align-items: center;
 }
 
+.imagemLog {
+    height: 148px;
+    width: 100px;
+}
+
+.ladinho {
+    width: 100px;
+    height: 235px;
+    float: left;
+}
+
+.central {
+    width: 440px;
+    height: 235px;
+    float: left;
+    overflow: auto;
+}
+
 .titulo{
     font-style: italic;
     font-size: large;
