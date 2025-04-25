@@ -126,10 +126,11 @@ li {
 	background-color: #111111;
 	margin-top: 20px;
 	padding: 16px 16px;
-	display: inline-block;	
+	display: block;	
 	font-size: 14px;
 	color: #00ff00;
 	position: relative;
+	margin: 0 auto;
 	z-index: 3;
 }
 
