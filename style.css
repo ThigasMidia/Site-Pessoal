@@ -125,12 +125,10 @@ li {
 	border: 2px solid #00ff00;
 	background-color: #111111;
 	margin-top: 20px;
-	left: 140px;
 	padding: 16px 16px;
 	font-size: 14px;
 	color: #00ff00;
 	position: relative;
-	display: grid;
 	z-index: 3;
 }
 
