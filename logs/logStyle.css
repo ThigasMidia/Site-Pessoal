@@ -20,7 +20,7 @@ body {
     width: 440px;
     height: 235px;
     float: left;
-    overflow: auto;
+    overflow: scroll;
 }
 
 .titulo{
@@ -63,4 +63,5 @@ body {
     padding: 5px;
     border-radius: 15px;
     box-shadow: 0 0 10px #051505,0 0 10px #051505,0 0 10px #051505,0 0 10px #051505,0 0 14px #d1d0fc;
+    overflow: scroll;
 }
