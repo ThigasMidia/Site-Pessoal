@@ -12,20 +12,47 @@
 <body>
     <center>
         <br><br>
-        <div class="elTb" style="height: 1400px; width: 1500px; align-self: center;">
+        <div class="elTb" style="height: 2500px; width: 1500px; align-self: center;">
             <p class="tituloBlog" style="font-size: 80px; text-shadow: 1px 2px green;">Blockchain de MiniCoin, uma moeda fantasia</p><br>
-            <p class="tituloBlog" style="font-size: 38px;">Sofia Barbosa Candiotto (GRR20232333), Thiago José Barzotto (GRR 20235687)</p><br><br><br>
+            <p class="tituloBlog" style="font-size: 38px;">Sofia Barbosa Candiotto (GRR20232333), Thiago José Barzotto (GRR20235687)</p><br><br><br>
             <p class="tituloBlog" style="text-align: left; margin-left: 30px;">1. Introdução</p><br>
-            <p class="textoBlog" style="font-size: 20px; margin-left: 15px; margin-right: 15px;">Este é um trabalho desenvolvido para a disciplina de Redes de Computadores 2. O trabalho consiste na construção de uma criptomoeda fantasia: a MiniCoin. Como todas as criptomoedas, a MiniCoin se baseia na construção de uma BlockChain. A construção da BlockChain se baseia em apenas um servidor e um cliente. O cliente faz requisições diretamente ao servidor de apenas 2 operações: depósito e saque. A operação de saque pode ser impedida caso o saldo da conta corrente for menor que o valor a ser realizado o saque. A operação, se bem sucedida, é armazenada como bloco na BlockChain.</p>
-            <p class="tituloBlog" style="text-align: left; margin-left: 30px;">2. Conexão Cliente-Servidor</p><br>
-            <p class="tituloBlog" style="text-align: left; margin-left: 40px; font-size: 30px;">2.1. Cliente</p><br>
-            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px;">O cliente funciona de maneira simples. O programa recebe como parâmetro o nome do servidor e a porta desejada pra conexão. Com o nome do servidor, o cliente obtém o endereço ip do mesmo. Após isso, para cada operação de sque ou depósito realizada pelo cliente é aberto um novo socket. A requisição é então enviada e o cliente espera uma resposta do servidor (se a operação foi bem sucedida ou se algum erro ocorreu). Então, o socket é fechado e o cliente espera o usuário escolher uma nova requisição que criará um novo socket para aquela requisição.</p>
-            <p class="tituloBlog" style="text-align: left; margin-left: 40px; font-size: 30px;">2.2. Servidor</p><br>
-            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px;">O servidor funciona de uma maneira diferente. O programa recebe como parâmetro a porta desejada para conexão. O servidor então obtém o próprio endereço IP e cria um socket para "escutar" a rede, <i>bindando</i> o socket no IP do servidor e o deixando em <i>listen</i>. O servidor então entra em seu loop de uso onde o segundo socket para "aceitar" aceita requisições na fila do outro. Após o servidor tratar a mensagem recebida, envia uma mensagem ao cliente pelo socket de "aceitar" e fecha esse socket, encerrando essa requisição.</p>
-            <p class="tituloBlog" style="text-align: left; margin-left: 30px;">3. BlockChain</p><br>
-            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px;"></p>
-            <p class="tituloBlog" style="text-align: left; margin-left: 30px;">4. Códigos-Fonte e Logs</p><br>
-            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px;"></p>
+            <p class="textoBlog" style="font-size: 20px; margin-left: 40px; margin-right: 15px; text-align: left;">Este é um trabalho desenvolvido para a disciplina
+            de Redes de Computadores 2. O trabalho consiste na construção de uma criptomoeda fantasia: a MiniCoin. Como todas as criptomoedas, a
+            MiniCoin se baseia na construção de uma BlockChain. A construção da BlockChain é feita em apenas um servidor e um cliente. O
+            cliente faz requisições diretamente ao servidor de apenas 3 operações: verificar saldo, depósito e saque. A operação de saque pode ser impedida
+            caso o saldo da conta corrente for menor que o valor a ser sacado. A operação, se bem sucedida, é armazenada como bloco na BlockChain.</p><br>
+            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;">O código consiste em 4 arquivos diferentes:
+            "servidor.py", "cliente.py", "blockchain.py" e "mensagem.py". Essa modularização nos ajuda a entender melhor cada função implementada.</p>
+            <p class="tituloBlog" style="text-align: left; margin-left: 30px; margin-top: 30px;">2. Conexão Cliente-Servidor</p><br>
+            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;">O cliente e o servidor da nossa BlockChain
+            possuem arquivos separados. O servidor deve ser inicializado antes que o cliente possa se conectar. As requisições são armazenadas numa fila e resolvidas
+            uma por uma na ordem em que chegaram.
+            </p>
+            <p class="tituloBlog" style="text-align: left; margin-left: 40px; font-size: 30px; margin-top: 30px;">2.1. Cliente</p><br>
+            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;">O cliente funciona de maneira simples. O programa
+            recebe como parâmetro para conexão cliente-servidor o nome do servidor e a porta desejada pra conexão. Com o nome do servidor, o cliente obtém o endereço ip do
+            mesmo. Após isso, para cada operação de sque ou depósito realizada pelo cliente é aberto um novo socket. A requisição é então enviada
+            e o cliente espera uma resposta do servidor (se a operação foi bem sucedida ou se algum erro ocorreu). Então, o socket é fechado e o
+            cliente espera o usuário escolher uma nova requisição que criará um novo socket para aquela requisição.</p>
+            <p class="tituloBlog" style="text-align: left; margin-left: 40px; font-size: 30px; margin-top: 30px;">2.2. Servidor</p><br>
+            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;">O servidor funciona de uma maneira diferente. O
+            programa recebe como parâmetro para conexão cliente-servidor a porta desejada para conexão. O servidor então obtém o próprio endereço IP e cria um socket para
+            "escutar" a rede, <i>bindando</i> o socket no IP do servidor e o deixando em <i>listen</i>. O servidor então entra em seu loop
+            de uso onde o segundo socket para "aceitar" aceita requisições na fila do outro. Após o servidor tratar a mensagem recebida,
+            envia uma mensagem ao cliente pelo socket de "aceitar" e fecha esse socket, encerrando essa requisição.</p>
+            <p class="tituloBlog" style="text-align: left; margin-left: 30px; margin-top: 30px;">3. BlockChain</p><br>
+            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;">Assim como no artigo original do BitCoin, as operações
+            da MiniCoin são armazenadas em uma BlockChain.<br><br> O primeiro registro da conta armazena o valor do primeiro depósito, o nome do proprietário,
+            e a data e hora da criação da conta. Todos os próximos blocos a partir daí se referem à saque e depósito realizado com sucesso na conta.
+            </p>
+            <p class="tituloBlog" style="text-align: left; margin-left: 40px; font-size: 30px; margin-top: 30px;">3.1. A Função Hash</p><br>
+            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;"></p>
+            <p class="tituloBlog" style="text-align: left; margin-left: 30px; margin-top: 30px; text-align: left;">4. Mensagem</p><br>
+            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;">O arquivo "mensagem.py" serve apenas para
+            definir o formato das mensagens de criação de conta e envio de requisições de uma operação ao servidor. As funções implementadas nele constroem
+            essas mensagens no formato desejado e retornam a string a ser enviada para o servidor.</p>
+            <p class="tituloBlog" style="text-align: left; margin-left: 30px; margin-top: 30px; text-align: left;">5. Códigos-Fonte e Logs</p><br>
+            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;"></p>
         </div>
         <br><br>
     </center>
