@@ -1,0 +1,211 @@
+import socket
+import sys
+import io
+import logging
+from libs import blockchain as bc
+
+def is_float(x):
+    if x is None: 
+        return False
+    try:
+        float(x)
+        return True
+    except ValueError:
+        return False
+
+#Checa se todos os parametros de inicializacao existem
+if len(sys.argv) != 3:
+    print("Guia de Uso: python3 servidor.py <porta> <numero-do-log>")
+    sys.exit(1)
+
+tamFila = 5
+porta = int(sys.argv[1])
+
+#Configurando log
+logging.basicConfig(filename='servidor'+sys.argv[2]+'.log', level=logging.INFO, filemode="w+")
+log = logging.getLogger()
+log.info("Iniciando o Servidor...")
+print("Iniciando o Servidor...")
+
+#Pega o nome do servidor
+meuNome = socket.gethostname()
+
+#Pega o IP baseado no nome do servidor
+try:
+    meuIp = socket.gethostbyname(meuNome)
+except socket.gaierror:
+    print("IP nao encontrado!")
+    log.info("IP nao encontrado! Abortando...")
+    sys.exit(1)
+
+#Faz bind no sockEscuta e deixa em listen pra fazer a fila de requisicoes
+sockEscuta = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sockEscuta.bind((meuIp, porta))
+sockEscuta.listen(tamFila)
+log.info("Servidor Online")
+print("Servidor Online")
+
+cria = 0;
+
+#Cria a blockChain
+while True:
+
+    #cria a conta
+    while not cria :
+        sockAtende, enderecCliente = sockEscuta.accept()
+        log.info("Conexao estabelecida com " + str(enderecCliente))
+        print("Conexao estabelecida com " + str(enderecCliente))
+
+        buf = sockAtende.recv(io.DEFAULT_BUFFER_SIZE)
+        mensagem = buf.decode()
+
+        data = mensagem.split("\n")
+
+        if (data[0] == "0") and is_float(data[4]):
+            #cria a conta
+            cabeca = bc.Nodo(data, 5381)
+            atual = cabeca
+            log.info("Criei a conta: " + atual.data.nome)
+            print("Criei a conta: " + atual.data.nome)
+            cria = 1
+            dados = "0"
+            sockAtende.send(dados.encode())
+        else:
+            dados = "2"
+            sockAtende.send(dados.encode())
+            log.info("Não foi possível criar a conta, mesagem invalida.")
+            print("Não foi possível criar a conta, mensagem invalida.")
+            
+        sockAtende.close()
+        log.info("Requisicao Encerrada")
+        print("Requisicao Encerrada")
+
+    print("\n###############################################################\n")
+
+    conectado = 1
+
+    #Loop de atendimento de cada requisicao
+    while conectado:
+        sockAtende, enderecCliente = sockEscuta.accept()
+        log.info("Conexao estabelecida com " + str(enderecCliente))
+        print("Conexao estabelecida com " + str(enderecCliente))
+
+        buf = sockAtende.recv(io.DEFAULT_BUFFER_SIZE)
+
+        mensagem = buf.decode()
+        print(mensagem)
+        data = mensagem.split("\n")
+        
+        #checa se a requisicao eh de uma operacao valida
+        if data[0] not in ["1", "2", "3", "4", "5"] :
+            dados = "3"
+            sockAtende.send(dados.encode())
+            log.info("A operacao e invalida.")
+            print("A operacao e invalida")
+        elif data[0] == "3":
+            # consulta de saldo
+            saldo = str(bc.calculaSaldo(cabeca))
+        
+            log.info("Efetuada a operacao consulta de saldo: " + saldo)
+            print("Efetuada a operacao consulta de saldo: " + saldo)
+            
+            saldo = "0" + saldo
+            sockAtende.send(saldo.encode())
+            
+        elif data[0] in ["4", "5"]:
+            conectado = 0
+            
+        else:
+            #deposito ou saque
+            if is_float(data[1]):
+                operacao = data[0]
+                valor = float(data[1])
+                
+                saldo = bc.calculaSaldo(cabeca)
+                
+                #saldo insuficiente
+                if (operacao == "2") and (valor > saldo):
+                    dados = "1"
+                    sockAtende.send(dados.encode())
+                    log.info("O saldo eh insuficiente.")
+                    print("O saldo eh insuficiente")
+                else:
+                        novoNodo = bc.Nodo(data, atual.hash)
+                        atual.prox = novoNodo
+                        atual = atual.prox
+                        bc.imprimeChain(cabeca)
+                        
+                        if atual.data.op == "1":
+                            op = "deposito"
+                        else:
+                            op = "saque"
+                        
+                        saldo = str(bc.calculaSaldo(cabeca))
+                        
+                        log.info("Sou o servidor. Efetuada a operacao: " + op + " com o valor: " + str(atual.data.valor))
+                        print("Sou o servidor. Efetuada a operacao: " + op + " com o valor: " + str(atual.data.valor))
+                        log.info("Sou o servidor. O Saldo atual eh " + saldo )
+                        print("Sou o servidor. O saldo atual eh " + saldo )
+
+                        dados = "0" + saldo
+                        sockAtende.send(dados.encode())
+            else:
+                dados = "2"
+                sockAtende.send(dados.encode())
+                log.info("Não foi possível fazer a operacao, mesagem invalida.")
+                print("Não foi possível fazer a operacao, mensagem invalida.")
+
+        sockAtende.close()
+        log.info("Requisicao Encerrada")
+        print("Requisicao Encerrada")
+        
+        print("\n###############################################################\n")
+
+    
+    
+    log.info("Cliente Desconectado.")
+    print("Cliente Desconectado.")
+        
+    #reconexao do mesmo cliente
+    clienteCerto = 0
+    while not clienteCerto:
+        
+        sockAtende, enderecClienteNew = sockEscuta.accept()
+        log.info("Conexao estabelecida com " + str(enderecClienteNew))
+        print("Conexao estabelecida com " + str(enderecClienteNew))
+            
+        buf = sockAtende.recv(io.DEFAULT_BUFFER_SIZE)
+        mensagem = buf.decode()
+            
+        if (enderecClienteNew[0] != enderecCliente[0]):
+            log.info("Não foi possível reconectar cliente, enderecos não batem.")
+            print("Não foi possível reconectar cliente, enderecos não batem.")
+            dados = "2"
+            sockAtende.send(dados.encode())
+        else:
+            log.info("Cliente reconectado.")
+            print("Cliente reconectado.")
+                
+            data = mensagem.split("\n")
+            data[0] = "1"
+            data[1] = data[4]
+             
+            novoNodo = bc.Nodo(data, atual.hash)
+            atual.prox = novoNodo
+            atual = atual.prox
+            bc.imprimeChain(cabeca)
+                
+            clienteCerto = 1
+            dados = "1"
+            sockAtende.send(dados.encode())
+        
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+# estrutura dos dados do nodo cabeca
+class DataCabeca:
+    def __init__(self, data):
+        #string dos dados concatenados para fazer hash
+        self.data = data[1] + data[2] + data[3] + data[4]
+        
+        self.nome = data[1]
+        self.date = data[2]
+        self.hora = data[3]
+        self.valor = float(data[4])
+        
+# estrutura dos dados dos outros nodos
+class DataCorpo:
+    def __init__(self, data):
+        #string dos dados concatenados para fazer hash
+        self.data = data[0] + data[1]
+        self.op = data[0]
+        self.valor = float(data[1])
+
+class Nodo:
+    def __init__(self, data, hashAnt):
+        if data[0] == "0":
+            self.data = DataCabeca(data);
+        else:
+            self.data = DataCorpo(data);
+        self.hashAnt = hashAnt
+        self.hash = calculaHashAtual(self);
+        self.prox = None
+
+def imprimeChain(cabeca):
+    print()
+    print()
+    print("IMPRIMINDO A BLOCKCHAIN")
+    print(cabeca.data.nome, cabeca.data.date, cabeca.data.hora, cabeca.data.valor, cabeca.hash)
+    atual = cabeca.prox
+    while atual:
+        print(atual.data.op, atual.data.valor, atual.hash)
+        atual = atual.prox
+    print("TERMINOU DE IMPRIMIR")
+    print()
+    print()
+
+def calculaSaldo(cabeca):
+    nodo = cabeca
+    saldo = nodo.data.valor
+    
+    while nodo.prox:
+        nodo = nodo.prox 
+        if nodo.data.op == "1":
+            saldo += nodo.data.valor
+        else:
+            saldo -= nodo.data.valor
+    
+    if not confirmaHash(nodo) :
+        return -1
+            
+    return saldo
+
+#------------------------------------- HASH -----------------------------------#
+    
+# djb2
+def funcHash (dados):
+    
+    h = 5381
+    
+    for c in dados:
+        h = ((h << 5) + h) + ord(c) # h * 33 + c
+        
+    return h
+
+def calculaHashAtual(nodo): 
+    piece = str(nodo.hashAnt);
+    return funcHash( piece[0:13] + nodo.data.data)
+    
+def confirmaHash (nodo):
+    if calculaHashAtual(nodo) == nodo.hash :
+        return 1
+    return 0

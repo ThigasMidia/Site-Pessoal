@@ -1,0 +1,27 @@
+import socket
+import sys
+import io
+import logging
+import datetime
+
+# monta os dados da mensagem "cria conta"
+def criaConta (nome, valor) :
+    
+    msg = "0\n";
+
+    msg = msg + nome;
+    
+    date = datetime.datetime.now();
+    
+    msg = msg + "\n" + date.strftime("%d/%m/%y") + "\n" + date.strftime("%H:%M")
+    
+    msg = msg + "\n" + str(valor)
+    
+    return str(msg)
+
+# monta os dados da mensagem "operacao"
+def operacao (op, valor) :
+    
+    msg = str(op) + "\n" + valor
+
+    return str(msg)

@@ -1,0 +1,142 @@
+import socket
+import sys
+import io
+import logging
+from libs import mensagem as msg
+
+#Checa se todos os parametros de inicializacao existem
+if len(sys.argv) != 4:
+    print("Guia de Uso: python3 cliente.py <nome-servidor> <porta> <numero-do-log>")
+    sys.exit(1)
+
+host = sys.argv[1]
+porta = int(sys.argv[2])
+
+#Configurando log
+logging.basicConfig(filename='cliente'+sys.argv[3]+'.log', level=logging.INFO, filemode="w+")
+log = logging.getLogger()
+log.info("Iniciando o Cliente...")
+print("Iniciando o Cliente...")
+
+#Pega o IP do servidor
+try:
+    ipServ = socket.gethostbyname(host)
+except socket.gaierror:
+    print("IP do Servidor nao foi encontrado!")
+    log.info("IP do Servidor nao foi encontrado!")
+    sys.exit(1)
+
+print("Conectado ao servidor! Pronto para enviar mensagens")
+log.info("Conectado ao servidor! Pronto para enviar mensagens")
+
+nome = socket.gethostname()
+
+
+# inicia a conta com um valor de deposito
+print("Bem vindo a sua conta minicoin, " + nome + "!")
+print("Quanto voce deseja depositar?")
+valor = input()
+
+dados = msg.criaConta(nome, valor)
+envio = dados.encode()
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect((ipServ, porta))
+sock.send(envio)
+
+buf = sock.recv(io.DEFAULT_BUFFER_SIZE)
+mensagem = buf.decode()
+
+sair = False
+
+if mensagem[0] == "0":
+    print("A conta foi criada.")
+    log.info("A conta foi criada.")
+
+elif mensagem[0] == "1":
+    print("Bem vindo de volta!")
+    log.info("Fui reconectado.")
+    
+elif mensagem[0] == "2":
+    print("Nao foi possivel criar a conta. O servidor está cheio.")
+    log.info("Nao foi possivel criar a conta. O servidor esta cheio.")
+    sair = True
+    
+else:
+    print("Nao foi possivel criar a conta.")
+    log.info("Nao foi possivel criar a conta.")
+    sair = True
+
+
+print("\n###############################################################\n")
+
+operacao = 0
+while not sair:
+    print("Escolha sua operacao:")
+    print("1: Fazer Deposito")
+    print("2: Fazer Saque")
+    print("3: Verificar Saldo")
+    print("4: Sair")
+    
+    operacao = input()
+    if operacao not in ["1", "2", "3"]:
+        log.info("Cliente encerrando a conexao")
+        print("Cliente encerrando a conexao")
+        sair = True
+        
+    else:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.connect((ipServ, porta))
+        
+        valor = "0"
+        
+        # print da operacao
+        if operacao != "3":
+            #operacoes de saque e deposito
+            print("Qual seria o valor?")
+            valor = input()
+            
+            if operacao == "1":
+                op = "deposito"
+            else:
+                op = "saque"
+                
+            log.info("Tentativa de " + op + " com o valor: " + valor)
+        else:
+            #operacao de checagem de saldo
+            log.info("Tentativa de checar saldo.")
+        
+        dados = msg.operacao(operacao, valor)
+        
+        envio = dados.encode()
+        
+        sock.send(envio)
+        buf = sock.recv(io.DEFAULT_BUFFER_SIZE)
+        mensagem = buf.decode()
+        
+        # tratamento do retorno
+        if mensagem[0] == "0":
+            print("A operacao foi bem sucedida.")
+            log.info("A operacao foi bem sucedida.")
+            print("O saldo atual eh: " + mensagem[1:])
+            log.info("O saldo atual eh: " + mensagem[1:])
+        elif mensagem[0] == "1":
+            print("O saldo eh insuficiente.")
+            log.info("O saldo eh insuficiente.")
+        elif mensagem[0] == "2":
+            print("A mensagem eviada eh inválida.")
+            log.info("A mensagem enviada eh inválida.")
+        else:
+            print("A operação eh inválida.")
+            log.info("A operação eh inválida.")
+            
+        print("\n###############################################################\n")
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect((ipServ, porta))
+    
+dados = "4"
+envio = dados.encode()        
+sock.send(envio)
+
+sock.close()

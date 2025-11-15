@@ -1,0 +1,112 @@
+INFO:root:Iniciando o Servidor...
+INFO:root:Servidor Online
+INFO:root:Conexao estabelecida com ('127.0.0.1', 46540)
+INFO:root:Criei a conta: thiago-B550M-AORUS-ELITE
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 46556)
+INFO:root:Sou o servidor. Efetuada a operacao: deposito com o valor: 172835481.0
+INFO:root:Sou o servidor. O Saldo atual eh 172836613.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 41002)
+INFO:root:O saldo eh insuficiente.
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 41006)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 14141414.0
+INFO:root:Sou o servidor. O Saldo atual eh 158695199.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 33008)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 158695199.0
+INFO:root:Sou o servidor. O Saldo atual eh 0.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 51972)
+INFO:root:O saldo eh insuficiente.
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 51978)
+INFO:root:O saldo eh insuficiente.
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 51984)
+INFO:root:O saldo eh insuficiente.
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 51994)
+INFO:root:Sou o servidor. Efetuada a operacao: deposito com o valor: 2.0
+INFO:root:Sou o servidor. O Saldo atual eh 2.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52002)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 1.0
+INFO:root:Sou o servidor. O Saldo atual eh 1.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52010)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 1.0
+INFO:root:Sou o servidor. O Saldo atual eh 0.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52012)
+INFO:root:O saldo eh insuficiente.
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52052)
+INFO:root:Efetuada a operacao consulta de saldo: 0.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52064)
+INFO:root:Efetuada a operacao consulta de saldo: 0.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52078)
+INFO:root:Sou o servidor. Efetuada a operacao: deposito com o valor: 178253.0
+INFO:root:Sou o servidor. O Saldo atual eh 178253.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52082)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 1724.0
+INFO:root:Sou o servidor. O Saldo atual eh 176529.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52098)
+INFO:root:Efetuada a operacao consulta de saldo: 176529.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52114)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 18724.0
+INFO:root:Sou o servidor. O Saldo atual eh 157805.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 57838)
+INFO:root:Efetuada a operacao consulta de saldo: 157805.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 57846)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 123143.0
+INFO:root:Sou o servidor. O Saldo atual eh 34662.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 57858)
+INFO:root:Efetuada a operacao consulta de saldo: 34662.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 51624)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 23123.0
+INFO:root:Sou o servidor. O Saldo atual eh 11539.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 51628)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 11122.0
+INFO:root:Sou o servidor. O Saldo atual eh 417.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 51638)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 132.0
+INFO:root:Sou o servidor. O Saldo atual eh 285.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 51650)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 212.0
+INFO:root:Sou o servidor. O Saldo atual eh 73.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52084)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 61.0
+INFO:root:Sou o servidor. O Saldo atual eh 12.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52086)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 11.0
+INFO:root:Sou o servidor. O Saldo atual eh 1.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52096)
+INFO:root:Sou o servidor. Efetuada a operacao: saque com o valor: 1.0
+INFO:root:Sou o servidor. O Saldo atual eh 0.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52112)
+INFO:root:O saldo eh insuficiente.
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52124)
+INFO:root:Efetuada a operacao consulta de saldo: 0.0
+INFO:root:Requisicao Encerrada
+INFO:root:Conexao estabelecida com ('127.0.0.1', 52130)
+INFO:root:Requisicao Encerrada
+INFO:root:Cliente Desconectado.

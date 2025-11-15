@@ -1,0 +1,85 @@
+INFO:root:Iniciando o Cliente...
+INFO:root:Conectado ao servidor! Pronto para enviar mensagens
+INFO:root:A conta foi criada.
+INFO:root:Tentativa de deposito com o valor: 172835481
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 172836613.0
+INFO:root:Tentativa de saque com o valor: 1298758671
+INFO:root:O saldo eh insuficiente.
+INFO:root:Tentativa de saque com o valor: 14141414
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 158695199.0
+INFO:root:Tentativa de saque com o valor: 158695199
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 0.0
+INFO:root:Tentativa de saque com o valor: 1
+INFO:root:O saldo eh insuficiente.
+INFO:root:Tentativa de saque com o valor: 1
+INFO:root:O saldo eh insuficiente.
+INFO:root:Tentativa de saque com o valor: 1
+INFO:root:O saldo eh insuficiente.
+INFO:root:Tentativa de deposito com o valor: 2
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 2.0
+INFO:root:Tentativa de saque com o valor: 1
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 1.0
+INFO:root:Tentativa de saque com o valor: 1
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 0.0
+INFO:root:Tentativa de saque com o valor: 1
+INFO:root:O saldo eh insuficiente.
+INFO:root:Tentativa de checar saldo.
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 0.0
+INFO:root:Tentativa de checar saldo.
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 0.0
+INFO:root:Tentativa de deposito com o valor: 178253
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 178253.0
+INFO:root:Tentativa de saque com o valor: 1724
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 176529.0
+INFO:root:Tentativa de checar saldo.
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 176529.0
+INFO:root:Tentativa de saque com o valor: 18724
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 157805.0
+INFO:root:Tentativa de checar saldo.
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 157805.0
+INFO:root:Tentativa de saque com o valor: 123143
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 34662.0
+INFO:root:Tentativa de checar saldo.
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 34662.0
+INFO:root:Tentativa de saque com o valor: 23123
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 11539.0
+INFO:root:Tentativa de saque com o valor: 11122
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 417.0
+INFO:root:Tentativa de saque com o valor: 132
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 285.0
+INFO:root:Tentativa de saque com o valor: 212
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 73.0
+INFO:root:Tentativa de saque com o valor: 61
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 12.0
+INFO:root:Tentativa de saque com o valor: 11
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 1.0
+INFO:root:Tentativa de saque com o valor: 1
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 0.0
+INFO:root:Tentativa de saque com o valor: 1
+INFO:root:O saldo eh insuficiente.
+INFO:root:Tentativa de checar saldo.
+INFO:root:A operacao foi bem sucedida.
+INFO:root:O saldo atual eh: 0.0
+INFO:root:Cliente encerrando a conexao

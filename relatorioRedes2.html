@@ -12,14 +12,14 @@
 <body>
     <center>
         <br><br>
-        <div class="elTb" style="height: 2500px; width: 1500px; align-self: center;">
+        <div class="elTb" style="height: 2200px; width: 1500px; align-self: center;">
             <p class="tituloBlog" style="font-size: 80px; text-shadow: 1px 2px green;">Blockchain de MiniCoin, uma moeda fantasia</p><br>
             <p class="tituloBlog" style="font-size: 38px;">Sofia Barbosa Candiotto (GRR20232333), Thiago José Barzotto (GRR20235687)</p><br><br><br>
             <p class="tituloBlog" style="text-align: left; margin-left: 30px;">1. Introdução</p><br>
             <p class="textoBlog" style="font-size: 20px; margin-left: 40px; margin-right: 15px; text-align: left;">Este é um trabalho desenvolvido para a disciplina
             de Redes de Computadores 2. O trabalho consiste na construção de uma criptomoeda fantasia: a MiniCoin. Como todas as criptomoedas, a
             MiniCoin se baseia na construção de uma BlockChain. A construção da BlockChain é feita em apenas um servidor e um cliente. O
-            cliente faz requisições diretamente ao servidor de apenas 3 operações: verificar saldo, depósito e saque. A operação de saque pode ser impedida
+            cliente faz requisições diretamente ao servidor de apenas 4 operações: verificar saldo, depósito e saque. A operação de saque pode ser impedida
             caso o saldo da conta corrente for menor que o valor a ser sacado. A operação, se bem sucedida, é armazenada como bloco na BlockChain.</p><br>
             <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;">O código consiste em 4 arquivos diferentes:
             "servidor.py", "cliente.py", "blockchain.py" e "mensagem.py". Essa modularização nos ajuda a entender melhor cada função implementada.</p>
@@ -43,15 +43,22 @@
             <p class="tituloBlog" style="text-align: left; margin-left: 30px; margin-top: 30px;">3. BlockChain</p><br>
             <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;">Assim como no artigo original do BitCoin, as operações
             da MiniCoin são armazenadas em uma BlockChain.<br><br> O primeiro registro da conta armazena o valor do primeiro depósito, o nome do proprietário,
-            e a data e hora da criação da conta. Todos os próximos blocos a partir daí se referem à saque e depósito realizado com sucesso na conta.
-            </p>
+            e a data e hora da criação da conta. Todos os próximos blocos guardam a operação e o valor referente. Para calcular o saldo, passamos pela blockchain adicionando os valores de depósito e subtraindo os valores de saque, checando o hash no final.
             <p class="tituloBlog" style="text-align: left; margin-left: 40px; font-size: 30px; margin-top: 30px;">3.1. A Função Hash</p><br>
-            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;"></p>
+            <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;">A função hash utilizada é a djb2, uma função hash para strings que começa com o número 5381 e para cada caractere na string, multiplica o hash até agora por 33 e soma a codificação ASCII do caractere . Os números primos são escolhidos pois causam uma dispersão maior na tabela hash, o que garante que seja difícil atingir o mesmo valor por meio de strings diferentes e, portanto, que a checagem do hash retorne positiva apesar de haver diferença nos dados da blockchain. O hash é aplicado na concatenação de uma parte do hash anterior com os dados do nodo atual, fazendo com que seja possível checar a chain inteira, pelo último hash.</p>
             <p class="tituloBlog" style="text-align: left; margin-left: 30px; margin-top: 30px; text-align: left;">4. Mensagem</p><br>
             <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;">O arquivo "mensagem.py" serve apenas para
             definir o formato das mensagens de criação de conta e envio de requisições de uma operação ao servidor. As funções implementadas nele constroem
             essas mensagens no formato desejado e retornam a string a ser enviada para o servidor.</p>
             <p class="tituloBlog" style="text-align: left; margin-left: 30px; margin-top: 30px; text-align: left;">5. Códigos-Fonte e Logs</p><br>
+            <p style="text-align: left; margin-left: 40px;">
+            <a href="logs/cliente.py.txt" style="font-size: 35px;">cliente.py</a><br>
+            <a href="logs/servidor.py.txt" style="font-size: 35px;">servidor.py</a><br>
+            <a href="logs/blockchain.py.txt" style="font-size: 35px;">blockchain.py</a><br>
+            <a href="logs/mensagem.py.txt" style="font-size: 35px;">mensagem.py</a><br><br><br>
+            <a href="logs/cliente1.log.txt" style="font-size: 35px;">cliente.log</a><br>
+            <a href="logs/servidor1.log.txt" style="font-size: 35px;">servidor.log</a><br>
+            </p>
             <p class="textoBlog" style="font-size: 20px; margin-left: 45px; margin-right: 15px; text-align: left;"></p>
         </div>
         <br><br>
