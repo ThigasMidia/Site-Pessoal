@@ -1,7 +1,6 @@
 * {
 	margin: 0;
 	padding: 0;
-	border: 0;
 	vertical-align: baseline;
 	box-sizing: border-box;
 }
@@ -223,4 +222,10 @@ li {
 	height: 110px;
 	box-shadow: 0px 0px 60px green;
 	background-image: url(assets/icones/becki.jpg);
+}
+
+.botaoReflexao {
+	display: block;
+	border-width: 3px;
+	border-color: #00ff00;
 }
