@@ -5,7 +5,7 @@
 	box-sizing: border-box;
 }
 body {
-	background-image: url(assets/icones/fundogif.gif);
+	background-image: url(../assets/icones/fundogif.gif);
 }
 
 a {
@@ -21,7 +21,7 @@ a:hover {
 }
 
 ol {
-	list-style-image: url(assets/icones/amogusLista.png);
+	list-style-image: url(../assets/icones/amogusLista.png);
 }
 
 ul {
@@ -58,7 +58,7 @@ li {
 }
 
 .caixa {
-	background-image: url(assets/icones/fundoTextin.png);
+	background-image: url(../assets/icones/fundoTextin.png);
 	display: block;
 	border-width: 1px;
 	border-color: white;
@@ -94,7 +94,7 @@ li {
 	border-radius: 0px 0px 15px 0px;
 	opacity: 0;
 	transition: .5s ease;
-	background-image: url(assets/icones/becki.jpg);
+	background-image: url(../assets/icones/becki.jpg);
 	color:#ffffff;
 	position: relative;
 	display: flex;
@@ -132,7 +132,7 @@ li {
 }
 
 .botaoBlog:hover {
-	background-image: url(assets/icones/becki.jpg);
+	background-image: url(../assets/icones/becki.jpg);
 	border-color: white;
 	color:#ffffff;
 	transition-duration: 200ms;
@@ -161,7 +161,7 @@ li {
 	left: 0;
 	height: 13%;
 	width: 8%;
-	background-image: url(assets/icones/parado.gif);
+	background-image: url(../assets/icones/parado.gif);
 	background-size: cover;
 }
 
@@ -173,7 +173,7 @@ li {
 	left: 85%;
 	height: 22%;
 	width: 14%;
-	background-image: url(assets/icones/moguinhos.gif);
+	background-image: url(../assets/icones/moguinhos.gif);
 	background-size: cover;
 }
 
@@ -208,7 +208,7 @@ li {
 }
 
 .cantoCima:hover {
-	background-image: url(assets/icones/ventando.gif);
+	background-image: url(../assets/icones/ventando.gif);
 }
 
 .principal {
@@ -218,7 +218,7 @@ li {
 	border-color: white;
 	border-style: solid;
 	height: 110px;
-	background-image: url(assets/icones/becki.jpg);
+	background-image: url(../assets/icones/becki.jpg);
 }
 
 .botaoReflexao {
