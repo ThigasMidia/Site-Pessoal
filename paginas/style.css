@@ -1,21 +1,35 @@
+@font-face {
+  font-family: 'VCR OSD Mono';
+  src: url('../assets/fonts/VCR_OSD_MONO_1.001.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MinecraftMC';
+  src: url('../assets/fonts/Minecraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
 	margin: 0;
 	padding: 0;
 	vertical-align: baseline;
 	box-sizing: border-box;
 }
+
 body {
-	background-image: url(../assets/icones/fundogif.gif);
+	background-image: url(../assets/icones/fundogif.gif); 
+	font-family: 'VCR OSD Mono', monospace;
 }
 
 a {
-	text-decoration: none;
-	color: white;
+	text-decoration: none; 	
+	color: inherit;
 }
 
-a:visited {
-	color: white;
-}
 a:hover {
 	color: yellow;
 }
@@ -60,11 +74,14 @@ li {
 .caixa {
 	background-image: url(../assets/icones/fundoTextin.png);
 	display: block;
-	border-width: 1px;
+	border: 3px double;
 	border-color: white;
-	border-style: solid;
 	word-wrap: break-word;
 	scrollbar-width: none;
+}
+
+.caixa:hover {
+	border-color: #00ff00;
 }
 
 .botaoSai {
@@ -106,10 +123,11 @@ li {
 	right: 0;
 	height: 100%;
 	width: 100%;
+	border-color: #00ff00;
 }
 
 .botaoSai:hover .botaoSaiOver{
-	opacity: 1;
+	opacity: 1;	
 }
 
 .botaoSai:hover .textoBotaoSai {
@@ -146,12 +164,39 @@ li {
 }
 
 .elTb {
-	border-width: 1px;
+	border: 3px double;
 	border-color: white;
-	border-style: solid;
 	display: block;
 	background-color: black;
 	z-index: 2;
+}
+
+.elTb:hover {
+	border-color: #00ff00;
+}
+
+.navBar {
+	display: flex;
+	justify-content: space-around;
+}
+
+.headerButton {
+	border-color: white;
+	border-style: solid;
+	border-width: 1px;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 22px;
+    font-family: 'MinecraftMC', 'Courier New', Courier, monospace;
+	padding: 10px;
+}
+
+.headerButton:hover {
+	background-color: #00ff00;
+	text-decoration: underline;
 }
 
 .cantoCima {
@@ -212,13 +257,13 @@ li {
 }
 
 .principal {
-	width: 950px;
-	border-width: 2px;
-	border-spacing: 4px;
 	border-color: white;
-	border-style: solid;
-	height: 110px;
+	border-style: double;
 	background-image: url(../assets/icones/becki.jpg);
+}
+
+.principal:hover {
+	border-color: #00ff00;
 }
 
 .botaoReflexao {
@@ -252,6 +297,7 @@ li {
 	align-items: center;
 	width: 100%;
 	height: 60%;
+	color: white;
 }
 
 .textoReflexao:hover {
