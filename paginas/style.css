@@ -23,6 +23,8 @@
 body {
 	background-image: url(../assets/icones/fundogif.gif); 
 	font-family: 'VCR OSD Mono', monospace;
+    height: 100%;
+    width: 100%;
 }
 
 a {
@@ -88,7 +90,6 @@ li {
 	border-width: 1px;
 	border-color: white;
 	border-style: solid;
-	display: block;
 	background-color: black;
 	z-index: 2;
 	color: #00ff00;
